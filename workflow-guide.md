@@ -6,11 +6,7 @@ Welcome to the team! This guide will walk you through how we work with GitHub. F
 
 ## Our Branch Structure
 
-main (PRODUCTION! - dont touch)
-                |
-dev (DEVELOPMENT - where your code goes)
-                |
-#[number]-[description]-[name] (YOUR branches)
+main (PRODUCTION! - dont touch) -> dev (DEVELOPMENT - where your code goes) -> #[number]-[description]-[name] (YOUR branches)
 
 |        Branch         | Who Can Push  | Who Can Merge |                         Purpose                         |
 |-----------------------|---------------|---------------|---------------------------------------------------------|

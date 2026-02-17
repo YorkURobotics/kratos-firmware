@@ -113,15 +113,15 @@ Once your feature is complete:
 
 #### **If Changes Are Requested:**
 
-# 1. Make the requested changes locally
-# Edit your files...
+1. Make the requested changes locally
+Edit your files...
 
-# 2. Commit the fixes
+2. Commit the fixes
 ```bash
 git add .
 git commit -m "Fix: address review feedback"
 ```
-# 3. Push to the SAME branch
+3. Push to the SAME branch
 ```bash
 git push origin #5-add-login-sarah
 ```

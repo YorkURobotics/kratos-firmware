@@ -12,13 +12,11 @@ dev (DEVELOPMENT - where your code goes)
                 |
 #[number]-[description]-[name] (YOUR branches)
 
-|-----------------------|---------------|---------------|---------------------------------------------------------|
 |        Branch         | Who Can Push  | Who Can Merge |                         Purpose                         |
 |-----------------------|---------------|---------------|---------------------------------------------------------|
 |        `main`         |   Leads ONLY  |  Leads ONLY   |         Live production code. NEVER push here.          |
 |        `dev`          |    Everyone   |  Leads ONLY   |     Latest development code. Always branch from here.   |
 | Your feature branches |      You      |  Leads ONLY   | Where you do your work. Named like `#5-add-login-sarah` |
-|-----------------------|---------------|---------------|---------------------------------------------------------|
 
 ---
 
@@ -161,6 +159,7 @@ eg. #5-add-login-sarah, #12-fix-navbar-mike, #23-update-api-emma
 
 ## Git Cheat Sheet
 
+```bash
 # Start a new feature
 git checkout dev
 git pull origin dev
@@ -187,3 +186,4 @@ git reset --hard HEAD~1       # Undo last commit (delete changes)
 # After PR is merged
 git checkout dev
 git pull origin dev
+```

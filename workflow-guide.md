@@ -1,4 +1,4 @@
-# Junior Developer Workflow Guide
+# Developer Workflow Guide
 
 Welcome to the team! This guide will walk you through how we work with GitHub. Follow these steps for every task, and you'll never go wrong.
 

@@ -108,16 +108,14 @@ Once your feature is complete:
 
 6. **Click "Create pull request"**
 
----
-
 ### **Step 6: The Review Process**
 
-#### **⏳ Wait for Leads to Review**
+#### **Wait for Leads to Review**
 - Give the leads some grace time to review your code
 - You'll get an email notification when feedback is posted
 - Check back regularly for comments
 
-#### **✏️ If Changes Are Requested:**
+#### **If Changes Are Requested:**
 
 # 1. Make the requested changes locally
 # Edit your files...
@@ -144,7 +142,7 @@ git pull origin dev  # Get latest including your merged code
 
 ## Branch Naming Convention
 
-###MUST FOLLOW THIS FORMAT:
+### MUST FOLLOW THIS FORMAT:
 
 ```bash
 #[card-number]-[short-description]-[your-name]

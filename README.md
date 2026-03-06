@@ -18,10 +18,12 @@ kratos-firmware/
 │
 ├── firmware/
 │ └── kratos/
-│ ├── Core/ # Application source code
-│ ├── Drivers/ # STM32 HAL and CMSIS drivers
-│ ├── Middlewares/ # Optional middleware components
-│ └── kratos.ioc
+│   └── Core/ # Application source code
+│       ├── Inc
+│       ├── Src
+│       ├── Startup
+│   ├── Drivers/ # STM32 HAL and CMSIS drivers
+│   └── kratos.ioc
 │
 ├── .github/ # CI workflows
 ├── .gitignore
@@ -29,3 +31,4 @@ kratos-firmware/
 ├── workflow-guide.md
 └── LICENSE
 ```
+

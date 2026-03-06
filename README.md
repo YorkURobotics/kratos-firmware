@@ -24,7 +24,8 @@ kratos-firmware/
 │ └── kratos.ioc
 │
 ├── .github/ # CI workflows
+├── .gitignore
 ├── README.md
+├── workflow-guide.md
 └── LICENSE
 ```
-

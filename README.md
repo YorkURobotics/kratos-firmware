@@ -18,18 +18,16 @@ kratos-firmware/
 │
 ├── firmware/
 │ └── kratos/
-│ ├── Core/ # Application source code
-│ │ ├── Inc/ # Header files
-│ │ ├── Src/ # Source files
-│ │ └── Startup/ # Startup code
-│ ├── Drivers/ # STM32 HAL and CMSIS drivers
-│ └── kratos.ioc # STM32CubeMX project file
+│ ├── Core/               <- Application source code
+│ │ ├── Inc/              <- Header files
+│ │ ├── Src/              <- Source files
+│ │ └── Startup/          <- Startup code
+│ ├── Drivers/            <- STM32 HAL and CMSIS drivers
+│ └── kratos.ioc          <- STM32CubeMX project file
 │
-├── .github/ # CI/CD workflows
-├── .gitignore # Git ignore rules
-├── README.md # Project documentation
-├── workflow-guide.md # Workflow instructions
-└── LICENSE # License file
+├── .github/              <- CI/CD workflows
+├── .gitignore            <- Git ignore rules
+├── README.md             <- Project documentation
+├── workflow-guide.md     <- Workflow instructions
+└── LICENSE               <- License file
 ```
-
-

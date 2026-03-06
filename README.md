@@ -13,7 +13,7 @@ This repository contains the **embedded firmware** for the **Kratos rover platfo
 ---
 
 ## Repository Structure
-
+```
 kratos-firmware/
 │
 ├── firmware/
@@ -26,3 +26,4 @@ kratos-firmware/
 ├── .github/ # CI workflows
 ├── README.md
 └── LICENSE
+```

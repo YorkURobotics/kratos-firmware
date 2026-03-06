@@ -1,4 +1,4 @@
-# Kratos Rover Firmware
+# Kratos Firmware
 
 By: **York University Rover Team (YURS)** — Lassonde School of Engineering
 
@@ -27,3 +27,4 @@ kratos-firmware/
 ├── README.md
 └── LICENSE
 ```
+

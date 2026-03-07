@@ -48,7 +48,7 @@ git pull origin dev  # Get latest changes
 
 # Create your branch with our naming convention
 # Format: #[card-number]-[short-description]-[your-name]
-git checkout -b #5-add-login-sarah dev
+git checkout -b \#5-add-login-sarah dev
 
 # Example branches:
 # #5-add-login-sarah

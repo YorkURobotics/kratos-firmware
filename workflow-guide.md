@@ -47,7 +47,7 @@ git checkout dev
 git pull origin dev  # Get latest changes
 
 # Create your branch with our naming convention
-# Format: #[card-number]-[short-description]-[your-name]
+# Format: \#[card-number]-[short-description]-[your-name]
 git checkout -b \#5-add-login-sarah dev
 
 # Example branches:
@@ -76,7 +76,7 @@ git commit -m "Implement validation logic"
 git commit -m "Fix styling issues"
 
 # Push to GitHub regularly
-git push origin #5-add-login-sarah
+git push origin \#5-add-login-sarah
 ```
 
 ### **Step 5: Open a pull request**
@@ -99,7 +99,7 @@ Once your feature is complete:
 
 5. **Assign reviewers**
 - Click "Reviewers" on the right sidebar
-- Add both managers (or at least one)
+- Add both leads (or at least one)
 - Example: `@tirthp14` and `@artin59`
 
 6. **Click "Create pull request"**
@@ -123,7 +123,7 @@ git commit -m "Fix: address review feedback"
 ```
 3. Push to the SAME branch
 ```bash
-git push origin #5-add-login-sarah
+git push origin \#5-add-login-sarah
 ```
 
 ### **Step 7: Clean up**
@@ -141,7 +141,7 @@ git pull origin dev  # Get latest including your merged code
 ### MUST FOLLOW THIS FORMAT:
 
 ```bash
-#[card-number]-[short-description]-[your-name]
+\#[card-number]-[short-description]-[your-name]
 ```
 eg. #5-add-login-sarah, #12-fix-navbar-mike, #23-update-api-emma
 
@@ -157,7 +157,7 @@ eg. #5-add-login-sarah, #12-fix-navbar-mike, #23-update-api-emma
 # Start a new feature
 git checkout dev
 git pull origin dev
-git checkout -b #5-description-name dev
+git checkout -b \#5-description-name dev
 
 # Daily work
 git status                    # See what's changed
@@ -168,9 +168,9 @@ git push origin branch-name   # Push to GitHub
 # Update your branch with latest dev
 git checkout dev
 git pull origin dev
-git checkout #5-description-name
+git checkout \#5-description-name
 git merge dev                 # Merge latest dev into your branch
-git push origin #5-description-name
+git push origin \#5-description-name
 
 # Fix a mistake
 git restore filename          # Undo uncommitted changes

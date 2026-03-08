@@ -103,12 +103,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-	  uint8_t myData = 0xAA;
-	  CAN_TRANSMIT(&hcan, CAN_DEFAULT_ID, &myData, 1);
-
-	  HAL_Delay(1000);
-
   }
   /* USER CODE END 3 */
 }

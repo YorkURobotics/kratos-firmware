@@ -5,7 +5,7 @@
 ## What Changed?
 <!-- Describe what you changed and why -->
 
-## How to Test (if applicable)
+## What Steps Did You Take To Test Your Changes?
 <!-- Step by step instructions for reviewers to test your changes -->
 
 ## Self-Review Checklist (place this tick mark in each box -> ✓)

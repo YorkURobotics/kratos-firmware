@@ -6,8 +6,7 @@
  */
 
 #include "temp_sensor.h"
-#include "stm32f3xx_hal.h"
-#include "main.h"
+
 
 #define Rfixed 15000.0f
 
@@ -38,15 +37,15 @@ HAL_StatusTypeDef getTempVoltage(ADC_HandleTypeDef *ADCStructpointer, TempStruct
 
 
 		//guards
-		if (thermistor > 333000.0f) {
+		if (thermistor > 333560.0f) {
 			return -40.0f;
 		}
-		if (thermistor < 443.0f) {
+		if (thermistor < 443.94f) {
 					return 115.0f;
 				}
 
 
-		for (int i = 0; i < 31; i++) {
+		for (int i = 0; i < 32; i++) {
 
 			if (thermistor <= TempResValues[i].resistance && thermistor >= TempResValues[i + 1].resistance) {
 

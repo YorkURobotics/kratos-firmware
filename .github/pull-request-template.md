@@ -5,6 +5,9 @@
 ## What Changed?
 <!-- Describe what you changed and why -->
 
+## Usage in main.c?
+<!-- How is the function called in main.c (if applicable) -->
+
 ## What Steps Did You Take To Test Your Changes?
 <!-- Step by step instructions for reviewers to test your changes -->
 

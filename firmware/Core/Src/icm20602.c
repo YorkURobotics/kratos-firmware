@@ -6,6 +6,7 @@
  */
 
 #include "icm20602.h"
+#include "can_handler.h"
 #include "string.h"
 
 // -----------------------------------------------------------------------
@@ -25,7 +26,7 @@ static HAL_StatusTypeDef _write(ICM20602_Handle *dev, uint8_t reg, uint8_t val) 
 static HAL_StatusTypeDef _read(ICM20602_Handle *dev, uint8_t reg, uint8_t *buf, uint16_t len) {
 	return HAL_I2C_Mem_Read(dev->cfg.hi2c,
 							dev->cfg.addr << 1,
-							reg, I2C_MEMADD_SIZE_8BIT,
+							reg, I2C_MEMADD_SIZE_8BIT, // Register addresses on the ICM20602 are 8 bits long
 							buf, len, 20);
 }
 

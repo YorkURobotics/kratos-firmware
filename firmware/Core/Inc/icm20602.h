@@ -12,7 +12,6 @@
 #define INC_ICM20602_H_
 
 #include "stm32f3xx_hal.h"
-#include "can_handler.h"
 
 // -----------------------------------------------------------------------
 // Register Map
@@ -89,11 +88,11 @@ typedef enum {
 
 typedef struct {
 	I2C_HandleTypeDef *hi2c;				// HAL I2C handle
-	uint8_t			   addr;				// I2C device address (ICM_I2C_ADDR_LOW)
+	uint16_t		   sample_rate_hz;		// Output data rate in Hz (1–1000)
 	ICM_GyroFSR		   gyro_fsr;			// Gyroscope full-scale range
 	ICM_AccelFSR	   accel_fsr;			// Accelerometer full-scale range
 	ICM_DLPF		   dlpf;				// Digital low-pass filter bandwidth
-	uint16_t		   sample_rate_hz;		// Output data rate in Hz (1–1000)
+	uint8_t			   addr;				// I2C device address (ICM_I2C_ADDR_LOW)
 } ICM20602_Config;							// User supplied config passed to IMC20602_Init
 
 typedef struct {

@@ -18,9 +18,9 @@
 #define CAN_DEFAULT_ID 0x0E110C00        // Kratos Default ID
 
 // IMU CAN IDs
-#define CAN_IMU_ACCEL_ID    0x0E110C01   // Accel x, y, z
-#define CAN_IMU_GYRO_ID     0x0E110C02   // Gyro  x, y, z
-#define CAN_IMU_TEMP_ID     0x0E110C03   // Temperature
+#define CAN_IMU_GYRO_ID     0x0E110000   // Gyro  x, y, z
+#define CAN_IMU_ACCEL_ID    0x0E110400   // Accel x, y, z
+#define CAN_IMU_TEMP_ID     0x0E110800   // Temperature
 
 // -----------------------------------------------------------------------
 // Function Prototypes

@@ -5,18 +5,22 @@
  *      Author: Tirth Patel
  */
 
-#include <stdint.h>
-#include "main.h"
-
 #ifndef CAN_HANDLER_H
 #define CAN_HANDLER_H
+
+#include <stdint.h>
+#include "main.h"
 
 // -----------------------------------------------------------------------
 // Configuration (Define all CAN_IDs here)
 // -----------------------------------------------------------------------
 
-#define CAN_DEFAULT_ID 0x0E110C00
-//#define CAN_SERVO1
+#define CAN_DEFAULT_ID 0x0E110C00        // Kratos Default ID
+
+// IMU CAN IDs
+#define CAN_IMU_GYRO_ID     0x0E110000   // Gyro  x, y, z
+#define CAN_IMU_ACCEL_ID    0x0E110400   // Accel x, y, z
+#define CAN_IMU_TEMP_ID     0x0E110800   // Temperature
 
 // -----------------------------------------------------------------------
 // Function Prototypes

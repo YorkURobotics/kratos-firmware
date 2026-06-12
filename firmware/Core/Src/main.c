@@ -24,6 +24,7 @@
 
 #include "can_handler.h"
 #include "icm20602.h"
+#include "scheduler.h"
 
 /* USER CODE END Includes */
 
@@ -47,6 +48,8 @@ CAN_HandleTypeDef hcan;
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim2;
+
 /* USER CODE BEGIN PV */
 
 ICM20602_Handle imu;
@@ -59,6 +62,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_CAN_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -99,8 +103,10 @@ int main(void)
   MX_GPIO_Init();
   MX_CAN_Init();
   MX_I2C1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
+  //TODO: REMOVE ERROR_HANDLER
   if(HAL_CAN_Start(&hcan) != HAL_OK) Error_Handler();
   HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO1_MSG_PENDING);
 
@@ -116,6 +122,7 @@ int main(void)
   if (ICM20602_Init(&imu, &cfg) != HAL_OK)
 	  Error_Handler();
 
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -130,14 +137,26 @@ int main(void)
 	  // IMU
 	  // -----------------------------------------------------------------------
 
-	  if (ICM20602_ReadAll(&imu, &imu_data) == HAL_OK)
-		  ICM20602_SendCAN(&hcan, &imu_data);
+	  if (flag.imu){
+		  flag.imu = 0; //Reset flag
 
-	  HAL_Delay(2);
+		  if (ICM20602_ReadAll(&imu, &imu_data) == HAL_OK)
+			  ICM20602_SendCAN(&hcan, &imu_data);
+		  else{
+			  //TODO: ERROR CHECK
+		  }
+	  }
 
 	  // -----------------------------------------------------------------------
-	  // NEXT SENSOR IMPLEMENTATION
+	  // TEMPERATURE
 	  // -----------------------------------------------------------------------
+
+	  if (flag.temp){
+		  flag.temp = 0; //Reset flag
+
+		  //TODO: TEMP CALL, CAN SEND, && ERROR CHECK
+	  }
+
   }
   /* USER CODE END 3 */
 }
@@ -156,7 +175,7 @@ void SystemClock_Config(void)
   * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
@@ -277,6 +296,51 @@ static void MX_I2C1_Init(void)
 }
 
 /**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 1000-1;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 76000-1;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -327,6 +391,12 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 	if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &rxHeader, rxData) == HAL_OK) {
 		CAN_Process_Incoming(rxHeader.ExtId, rxData, rxHeader.DLC);
 	}
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
+
+	if(htim == &htim2)
+		Scheduler_Tick();
 }
 
 /* USER CODE END 4 */

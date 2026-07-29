@@ -381,6 +381,7 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
+	//Gets called every 1s
 	if(htim == &htim2)
 		Scheduler_Tick();
 }

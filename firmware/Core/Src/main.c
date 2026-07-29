@@ -106,8 +106,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-  //TODO: REMOVE ERROR_HANDLER
-  if(HAL_CAN_Start(&hcan) != HAL_OK) Error_Handler();
+  HAL_CAN_Start(&hcan);
   HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO1_MSG_PENDING);
 
   ICM20602_Config cfg = {
@@ -119,8 +118,7 @@ int main(void)
 	  .sample_rate_hz = 500,
   };
 
-  if (ICM20602_Init(&imu, &cfg) != HAL_OK)
-	  Error_Handler();
+  ICM20602_Init(&imu, &cfg)
 
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */

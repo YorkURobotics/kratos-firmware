@@ -12,12 +12,6 @@ static volatile uint8_t tick = 0;
 SchedulerFlag flag = {0};
 
 void Scheduler_Tick(){
-
 	tick++;
-
 	flag.imu = 1;
-
-	if (tick %2 == 0)
-		flag.temp = 1;
-
 }

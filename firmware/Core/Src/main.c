@@ -142,19 +142,7 @@ int main(void)
 
 		  if (ICM20602_ReadAll(&imu, &imu_data) == HAL_OK)
 			  ICM20602_SendCAN(&hcan, &imu_data);
-		  else{
-			  //TODO: ERROR CHECK
-		  }
-	  }
 
-	  // -----------------------------------------------------------------------
-	  // TEMPERATURE
-	  // -----------------------------------------------------------------------
-
-	  if (flag.temp){
-		  flag.temp = 0; //Reset flag
-
-		  //TODO: TEMP CALL, CAN SEND, && ERROR CHECK
 	  }
 
   }

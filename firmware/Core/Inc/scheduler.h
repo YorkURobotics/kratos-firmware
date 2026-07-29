@@ -12,7 +12,6 @@
 
 typedef struct {
 	volatile uint8_t imu;
-	volatile uint8_t temp;
 } SchedulerFlag;
 
 

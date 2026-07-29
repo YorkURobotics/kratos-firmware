@@ -118,7 +118,7 @@ int main(void)
 	  .sample_rate_hz = 500,
   };
 
-  ICM20602_Init(&imu, &cfg)
+  ICM20602_Init(&imu, &cfg);
 
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
